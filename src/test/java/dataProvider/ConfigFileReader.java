@@ -1,6 +1,7 @@
 package dataProvider;
 
 import enums.DriverType;
+import enums.EnvironmentType;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -57,8 +58,25 @@ public class ConfigFileReader
        else throw new RuntimeException("App URL is not available");
     }
 
-    public void getBrowser()
+    public DriverType getBrowser()
     {
-        //return "";
+        String browserName = properties.getProperty("browser");
+        if (browserName==null || browserName.equalsIgnoreCase("chrome"))
+            return DriverType.CHROME;
+        else if (browserName.equalsIgnoreCase("firefox"))
+            return DriverType.FIREFOX;
+        else if (browserName.equalsIgnoreCase("internetexplorer"))
+            return DriverType.INTERNETEXPLORER;
+        else throw new RuntimeException("Entered Browser is not available");
+    }
+
+    public EnvironmentType getEnvironment()
+    {
+        String environmentName = properties.getProperty("environment");
+        if (environmentName==null || environmentName.equalsIgnoreCase("local"))
+            return EnvironmentType.LOCAL;
+        else if (environmentName.equalsIgnoreCase("remote"))
+            return EnvironmentType.REMOTE;
+        else throw new RuntimeException("Entered Environment is not available");
     }
 }
