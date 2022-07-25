@@ -79,4 +79,11 @@ public class ConfigFileReader
             return EnvironmentType.REMOTE;
         else throw new RuntimeException("Entered Environment is not available");
     }
+
+    public String getReportConfigPath()
+    {
+        String reportConfigPath = properties.getProperty("reportConfigPath");
+        if (reportConfigPath!=null) return reportConfigPath;
+        else throw new RuntimeException("Path doesn't exists");
+    }
 }
