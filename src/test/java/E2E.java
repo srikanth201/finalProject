@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class E2E
 {
+    //Below code is for testing web application
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
